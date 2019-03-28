@@ -1,0 +1,136 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="">
+        <h3>Create phone</h3>
+        <div class="card">
+            <form
+            [formGroup]="registerForm" (ngSubmit)="onSubmit()"
+            >
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="price"
+                  [ngClass]="{ 'is-invalid': submitted && f.price.errors }"
+                  name="price"
+                  required
+                />
+                <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                    <div *ngIf="f.price.errors.required">>> required</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="model">Model</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="model"
+                    required
+                    formControlName="model"
+                  [ngClass]="{ 'is-invalid': submitted && f.model.errors }"
+                    name="model"
+                  />
+                  <div *ngIf="submitted && f.model.errors" class="invalid-feedback">
+                      <div *ngIf="f.model.errors.required">>> required</div>
+                      <div *ngIf="f.model.errors.minlength">>> must be at least 2 characters</div>
+                      <div *ngIf="f.model.errors.maxlength">>> must be at least 255 characters</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="brand">Brand</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="brand"
+                    formControlName="brand"
+                  [ngClass]="{ 'is-invalid': submitted && f.brand.errors }"
+                    name="brand"
+                  />
+                  <div *ngIf="submitted && f.brand.errors" class="invalid-feedback">
+                      <div *ngIf="f.brand.errors.required">>> required</div>
+                      <div *ngIf="f.brand.errors.minlength">>> must be at least 2 characters</div>
+                      <div *ngIf="f.brand.errors.maxlength">>> must be at least 255 characters</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="photo">Photo</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="photo"
+                    formControlName="photo"
+                  [ngClass]="{ 'is-invalid': submitted && f.photo.errors }"
+                    name="photo"
+                  />
+                  <div *ngIf="submitted && f.photo.errors" class="invalid-feedback">
+                      <div *ngIf="f.photo.errors.required">>> required</div>
+                      <div *ngIf="f.photo.errors.maxlength">>> must be at least 255 characters</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="code">Code</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="code"
+                    formControlName="code"
+                  [ngClass]="{ 'is-invalid': submitted && f.code.errors }"
+                    name="code"
+                  />
+                  <div *ngIf="submitted && f.code.errors" class="invalid-feedback">
+                      <div *ngIf="f.code.errors.required">>> required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="color">Color </label>
+                  <select name="color" formControlName="color" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.color.errors }">
+                    <option *ngFor="let color of colors" [value]="color">{{
+                      color
+                    }}</option>
+                  </select>
+                  <div *ngIf="submitted && f.color.errors" class="invalid-feedback">
+                      <div *ngIf="f.color.errors.required">>> required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="startDate">Start Date </label>
+                  <input
+                    type="date"
+                    name="startDate"
+                    class="form-control"
+                    formControlName="startDate"
+                  [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }"
+                    min="2019-01-01"
+                  />
+                  <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
+                      <div *ngIf="f.startDate.errors.required">>> required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="endDate">End Date </label>
+                  <input
+                    type="date"
+                    name="endDate"
+                    class="form-control"
+                    formControlName="endDate"
+                  [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }"
+                    min="2019-01-01"
+                  />
+                  <div *ngIf="submitted && f.endDate.errors" class="invalid-feedback">
+                      <div *ngIf="f.endDate.errors.required">>> required</div>
+                    </div>
+                </div>
+              <div class="form-group">
+                <button class="btn btn-success">Submit</button>
+              </div>
+              
+            </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>

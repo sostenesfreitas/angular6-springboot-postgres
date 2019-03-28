@@ -1,0 +1,27 @@
+<h1>Phones</h1>
+<nav class="navbar">
+    <input class="form-control" type="text" name="search" [(ngModel)]="filter" placeholder="Search">  <!-- Input que deve ser adicionado -->
+</nav>
+
+<ul class="list-unstyled">
+    <li class="media" *ngFor="let phone of phones | filter:filter">
+      <img class="mr-3" [src]="phone.photo" alt="">
+      <div class="media-body">
+          <a routerLink="/edit/{{phone.idPhone}}">{{ phone.brand }}</a>
+    <span class="delete" (click)='onDelete(phone.idPhone)'>
+      <i class="material-icons">
+        delete
+      </i>
+    </span>
+    
+    <ul>
+      <li>Model: {{ phone.model }}</li>
+      <li>Price: {{ phone.price | currency: 'BRL'}}</li>
+      <li>Price: {{ phone.color }}</li>
+      <li>Start Date: {{ phone.startDate | date }}</li>
+      <li>End Date: {{ phone.endDate | date }}</li>
+      <li>Code: {{ phone.code }}</li>
+    </ul>
+      </div>
+    </li>
+</ul>
